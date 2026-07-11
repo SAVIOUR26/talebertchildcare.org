@@ -47,7 +47,10 @@
         <?php foreach ($site['nav'] as $item): ?>
           <?php $hasChildren = !empty($item['children']); ?>
           <li class="<?= $hasChildren ? 'has-children' : '' ?> <?= is_active_url($item['url'], $currentPath) ? 'is-active' : '' ?>">
-            <a href="<?= e($item['url']) ?>"><?= e($item['label']) ?></a>
+            <a href="<?= e($item['url']) ?>">
+              <?= e($item['label']) ?>
+              <?php if ($hasChildren): ?><span class="chevron" aria-hidden="true"></span><?php endif; ?>
+            </a>
             <?php if ($hasChildren): ?>
               <ul class="submenu">
                 <?php foreach ($item['children'] as $child): ?>

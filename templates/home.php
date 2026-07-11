@@ -1,6 +1,15 @@
 <?php
 /** @var array $page content/pages/home.php */
 require __DIR__ . '/icons.php';
+
+// The live site's headline is one sentence split by a colon into a lead
+// clause and a supporting clause. Presenting them as two typographic
+// tiers (instead of one uniform wall of bold text) — the words are still
+// 100% verbatim, only how they're broken across lines changes.
+$headline = $page['hero']['headline'];
+$headlineParts = explode(':', $headline, 2);
+$headlineLead = trim($headlineParts[0]) . (count($headlineParts) > 1 ? ':' : '');
+$headlineSub = count($headlineParts) > 1 ? trim($headlineParts[1]) : '';
 ?>
 
 <section class="hero">
@@ -12,7 +21,10 @@ require __DIR__ . '/icons.php';
       <span class="hero__eyebrow"><?= e($page['hero']['eyebrow']) ?></span>
     </p>
     <p class="hero__tagline"><?= e($page['hero']['tagline']) ?></p>
-    <h1><?= e($page['hero']['headline']) ?></h1>
+    <h1>
+      <span class="hero__headline-lead"><?= e($headlineLead) ?></span>
+      <?php if ($headlineSub): ?><span class="hero__headline-sub"><?= e($headlineSub) ?></span><?php endif; ?>
+    </h1>
     <div class="hero__actions">
       <a class="btn btn-primary" href="<?= e($page['hero']['cta']['url']) ?>"><?= e($page['hero']['cta']['label']) ?></a>
       <a class="btn btn-outline" href="/about-us">Learn More</a>
@@ -65,7 +77,6 @@ require __DIR__ . '/icons.php';
   <div class="container">
     <div class="section-heading reveal">
       <p class="eyebrow"><?= e($page['programs']['eyebrow']) ?></p>
-      <h2>What We Do</h2>
     </div>
     <div class="card-grid cols-3">
       <?php foreach ($page['programs']['items'] as $i => $program): ?>
