@@ -35,7 +35,7 @@
 <header class="site-header">
   <div class="container site-header__inner">
     <a href="/" class="brand">
-      <img src="/assets/images/logo.webp" alt="<?= e($site['org_name']) ?>" width="42" height="42">
+      <img src="/assets/images/icon-mark.webp" alt="" width="52" height="52">
       <span class="brand-text">
         <span class="wordmark"><?= e($site['wordmark']) ?></span>
         <span class="tagline"><?= e($site['tagline']) ?></span>
