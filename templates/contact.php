@@ -1,11 +1,13 @@
 <?php
 /** @var array $page content/pages/contact-us.php */
+require __DIR__ . '/icons.php';
 
 $status = $_GET['status'] ?? null;
 ?>
 
 <section class="page-hero">
   <div class="container">
+    <p class="hero__eyebrow-row" aria-hidden="true"></p>
     <h1><?= e($page['heading']) ?></h1>
     <?php foreach ($page['intro'] as $paragraph): ?>
       <p><?= e($paragraph) ?></p>
@@ -49,7 +51,8 @@ $status = $_GET['status'] ?? null;
         </form>
       </div>
 
-      <div>
+      <div class="form-note">
+        <div class="icon-badge"><?= icon('handshake') ?></div>
         <p>Prefer email? Reach us directly at
           <a href="mailto:<?= e($site['contact_email']) ?>"><?= e($site['contact_email']) ?></a>.
         </p>

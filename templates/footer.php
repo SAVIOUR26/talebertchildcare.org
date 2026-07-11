@@ -6,6 +6,9 @@
 </main>
 
 <footer class="site-footer">
+  <div class="footer-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,20 C280,60 480,0 760,18 C1040,36 1200,4 1440,26 L1440,60 L0,60 Z" fill="var(--color-navy)"/></svg>
+  </div>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">

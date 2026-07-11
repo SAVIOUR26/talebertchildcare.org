@@ -5,10 +5,12 @@
  * page's content array actually defines.
  * @var array $page
  */
+require __DIR__ . '/icons.php';
 ?>
 
 <section class="page-hero">
   <div class="container">
+    <p class="hero__eyebrow-row" aria-hidden="true"></p>
     <h1><?= e($page['heading']) ?></h1>
   </div>
 </section>
@@ -19,8 +21,13 @@
     <?php if (!empty($page['intro']) || !empty($page['image'])): ?>
       <div class="split reveal" style="margin-bottom: var(--space-5)">
         <?php if (!empty($page['image'])): ?>
-          <div class="split__media">
-            <img src="<?= e($page['image']) ?>" alt="" loading="lazy">
+          <?php $isIconImage = str_contains($page['image'], '/icon-'); ?>
+          <div class="split__media <?= $isIconImage ? 'split__media--icon' : '' ?>">
+            <?php if ($isIconImage): ?>
+              <div class="icon-plate"><img src="<?= e($page['image']) ?>" alt="" loading="lazy"></div>
+            <?php else: ?>
+              <img src="<?= e($page['image']) ?>" alt="" loading="lazy">
+            <?php endif; ?>
           </div>
         <?php endif; ?>
         <div>
@@ -35,9 +42,11 @@
     <?php endif; ?>
 
     <?php if (!empty($page['blocks'])): ?>
+      <?php $blockIcons = ['Mission' => 'target', 'Vision' => 'compass']; ?>
       <div class="mv-grid reveal" style="margin-bottom: var(--space-4)">
         <?php foreach ($page['blocks'] as $block): ?>
           <div class="mv-card">
+            <div class="mv-icon"><?= icon($blockIcons[$block['heading']] ?? 'sparkle') ?></div>
             <h3><?= e($block['heading']) ?></h3>
             <p><?= e($block['body']) ?></p>
           </div>
@@ -55,11 +64,15 @@
       <div class="card-grid <?= count($page['cards']) >= 3 ? 'cols-3' : '' ?> reveal" style="margin-top: var(--space-4)">
         <?php foreach ($page['cards'] as $i => $card): ?>
           <?php $tag = !empty($card['url']) ? 'a' : 'div'; ?>
-          <<?= $tag ?> class="card" style="transition-delay: <?= ($i % 3) * 80 ?>ms" <?= !empty($card['url']) ? 'href="' . e($card['url']) . '"' : '' ?>>
-            <?php if (!empty($card['icon'])): ?><div class="icon"><img src="<?= e($card['icon']) ?>" alt="" loading="lazy" width="56" height="56"></div><?php endif; ?>
+          <<?= $tag ?> class="card <?= empty($card['icon']) ? 'numbered' : '' ?>" style="transition-delay: <?= ($i % 3) * 80 ?>ms" <?= !empty($card['url']) ? 'href="' . e($card['url']) . '"' : '' ?>>
+            <?php if (!empty($card['icon'])): ?>
+              <div class="icon"><img src="<?= e($card['icon']) ?>" alt="" loading="lazy" width="56" height="56"></div>
+            <?php else: ?>
+              <span class="card-index" aria-hidden="true"><?= str_pad((string) ($i + 1), 2, '0', STR_PAD_LEFT) ?></span>
+            <?php endif; ?>
             <h3><?= e($card['title']) ?></h3>
             <p><?= e($card['body']) ?></p>
-            <?php if (!empty($card['url'])): ?><span class="card-link">Learn more &rarr;</span><?php endif; ?>
+            <?php if (!empty($card['url'])): ?><span class="card-link">Learn more <span class="arrow">&rarr;</span></span><?php endif; ?>
           </<?= $tag ?>>
         <?php endforeach; ?>
       </div>

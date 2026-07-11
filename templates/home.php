@@ -1,16 +1,26 @@
 <?php
 /** @var array $page content/pages/home.php */
+require __DIR__ . '/icons.php';
 ?>
 
 <section class="hero">
+  <div class="hero__media">
+    <img src="/assets/images/photo-community-1.webp" alt="" loading="eager" fetchpriority="high">
+  </div>
   <div class="container hero__inner">
-    <p class="hero__eyebrow"><?= e($page['hero']['eyebrow']) ?></p>
+    <p class="hero__eyebrow-row">
+      <span class="hero__eyebrow"><?= e($page['hero']['eyebrow']) ?></span>
+    </p>
     <p class="hero__tagline"><?= e($page['hero']['tagline']) ?></p>
     <h1><?= e($page['hero']['headline']) ?></h1>
     <div class="hero__actions">
       <a class="btn btn-primary" href="<?= e($page['hero']['cta']['url']) ?>"><?= e($page['hero']['cta']['label']) ?></a>
       <a class="btn btn-outline" href="/about-us">Learn More</a>
     </div>
+  </div>
+  <div class="hero__scroll-cue" aria-hidden="true"><span>Scroll</span><span class="stem"></span></div>
+  <div class="section-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,32 C280,90 480,0 760,28 C1040,56 1200,10 1440,40 L1440,90 L0,90 Z" fill="var(--color-white)"/></svg>
   </div>
 </section>
 
@@ -39,8 +49,10 @@
       <h2><?= e($page['stats']['subheading']) ?></h2>
     </div>
     <div class="stats-grid">
+      <?php $statIcons = ['book', 'heart-hands', 'users', 'sparkle']; ?>
       <?php foreach ($page['stats']['items'] as $i => $stat): ?>
         <div class="stat-card reveal" style="transition-delay: <?= $i * 80 ?>ms">
+          <div class="stat-icon"><?= icon($statIcons[$i] ?? 'sparkle') ?></div>
           <div class="stat-number" data-count-to="<?= (int) $stat['value'] ?>" data-suffix="<?= e($stat['suffix']) ?>">0<?= e($stat['suffix']) ?></div>
           <p><?= e($stat['label']) ?></p>
         </div>
@@ -62,7 +74,7 @@
           <div class="icon"><img src="<?= e($program['icon']) ?>" alt="" loading="lazy" width="56" height="56"></div>
           <h3><?= e($program['title']) ?></h3>
           <p><?= e($program['body']) ?></p>
-          <?php if ($program['url']): ?><span class="card-link">Learn more &rarr;</span><?php endif; ?>
+          <?php if ($program['url']): ?><span class="card-link">Learn more <span class="arrow">&rarr;</span></span><?php endif; ?>
         </<?= $tag ?>>
       <?php endforeach; ?>
     </div>
@@ -73,10 +85,12 @@
   <div class="container">
     <div class="mv-grid reveal">
       <div class="mv-card">
+        <div class="mv-icon"><?= icon('target') ?></div>
         <h3><?= e($page['mission_vision']['mission']['heading']) ?></h3>
         <p><?= e($page['mission_vision']['mission']['body']) ?></p>
       </div>
       <div class="mv-card">
+        <div class="mv-icon"><?= icon('compass') ?></div>
         <h3><?= e($page['mission_vision']['vision']['heading']) ?></h3>
         <p><?= e($page['mission_vision']['vision']['body']) ?></p>
       </div>
@@ -98,10 +112,11 @@
     </div>
     <div class="card-grid cols-3">
       <?php foreach ($page['get_involved']['items'] as $i => $item): ?>
-        <a class="card reveal" style="transition-delay: <?= $i * 80 ?>ms" href="<?= e($item['url']) ?>">
+        <a class="card numbered reveal" style="transition-delay: <?= $i * 80 ?>ms" href="<?= e($item['url']) ?>">
+          <span class="card-index" aria-hidden="true"><?= str_pad((string) ($i + 1), 2, '0', STR_PAD_LEFT) ?></span>
           <h3><?= e($item['title']) ?></h3>
           <p><?= e($item['body']) ?></p>
-          <span class="card-link">Learn more &rarr;</span>
+          <span class="card-link">Learn more <span class="arrow">&rarr;</span></span>
         </a>
       <?php endforeach; ?>
     </div>
@@ -118,9 +133,12 @@
     <div class="section-heading reveal">
       <p class="eyebrow"><?= e($page['partners']['heading']) ?></p>
     </div>
-    <div class="partners-row reveal">
+    <div class="partners-center reveal">
       <?php foreach ($page['partners']['items'] as $partner): ?>
-        <img src="<?= e($partner['logo']) ?>" alt="<?= e($partner['name']) ?>" loading="lazy" height="64">
+        <div class="partner-spotlight">
+          <img src="<?= e($partner['logo']) ?>" alt="<?= e($partner['name']) ?>" loading="lazy">
+          <span class="label"><small>In Partnership With</small><strong><?= e($partner['name']) ?></strong></span>
+        </div>
       <?php endforeach; ?>
     </div>
   </div>
