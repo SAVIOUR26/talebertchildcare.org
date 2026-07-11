@@ -1,0 +1,36 @@
+name: Deploy to production (FTP)
+
+# Default trigger: push to main (i.e. once this rebuild is reviewed and
+# merged), plus an on-demand button in the Actions tab. Change the branch
+# below, or remove the push trigger entirely if you'd rather deploy purely
+# by hand.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy over FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT || 21 }}
+          protocol: ftp
+          # public_html is the FTP login's landing folder, so repo root -> "/"
+          server-dir: ./
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/tools/**
+            **/assets/originals/**
+            **/BRAND.md
+            **/CLAUDE.md

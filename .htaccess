@@ -1,0 +1,28 @@
+# Root .htaccess — used because FTP deploys land directly in public_html,
+# so this repo's root IS the web root (no separate docroot pointed at
+# /public/). This file makes clean slug URLs (e.g. /about-us) work and
+# blocks direct access to folders that are required server-side (via PHP
+# include) but were never meant to be requested over HTTP.
+# See CLAUDE.md for the full routing explanation.
+
+RewriteEngine On
+
+# Correct MIME type for WebP on older Apache/mod_mime configs.
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+</IfModule>
+
+# content/, templates/, tools/ hold PHP that public/index.php includes at
+# runtime — they must stay on the server, but should never be requested
+# directly. Repo-only docs are blocked too.
+RewriteRule ^(content|templates|tools)(/|$) - [F,L]
+RewriteRule ^(BRAND|CLAUDE)\.md$ - [F,L]
+
+# Serve any real file (CSS, JS, WebP images, sitemap.xml, robots.txt,
+# favicons, ...) directly, no PHP involved.
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Everything else (page slugs like /about-us, /donate, ...) goes through
+# the front controller.
+RewriteRule ^ /public/router.php [L]
