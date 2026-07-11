@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Serve real files/directories inside /public as-is (css, js, contact-handler.php, ...)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Everything else (page slugs, /assets/*, /sitemap.xml, /robots.txt) goes
+# through the router, which also serves static files from the repo root.
+RewriteRule ^ router.php [L]
