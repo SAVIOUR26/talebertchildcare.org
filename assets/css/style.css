@@ -169,6 +169,11 @@ section { padding-block: var(--space-5); }
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(1, 87, 140, 0.08);
 }
+/* The header carries more horizontal content (logo + 6 nav items with
+   dropdowns + CTA) than a body section, so it gets a wider measure than
+   --container-width on large screens instead of sitting cramped in the
+   middle of a lot of empty side margin. */
+.site-header .container { max-width: 1400px; }
 .site-header__inner {
   display: flex;
   align-items: center;
@@ -434,9 +439,9 @@ section { padding-block: var(--space-5); }
 }
 .hero__trust-item {
   display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  padding: 0.6rem 1.1rem;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 1.15rem 0.55rem 0.6rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.22);
@@ -444,6 +449,19 @@ section { padding-block: var(--space-5); }
   transition: transform 0.25s var(--ease), background-color 0.25s var(--ease);
 }
 .hero__trust-item:hover { transform: translateY(-3px); background: rgba(255, 255, 255, 0.18); }
+.hero__trust-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px; height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(41, 216, 219, 0.22);
+  color: var(--color-primary);
+  padding: 6px;
+}
+.hero__trust-icon svg { width: 100%; height: 100%; }
+.hero__trust-text { display: flex; align-items: baseline; gap: 0.45rem; }
 .hero__trust-item strong {
   font-family: var(--font-heading);
   font-weight: 800;
@@ -455,6 +473,50 @@ section { padding-block: var(--space-5); }
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.85);
   white-space: nowrap;
+}
+
+/* Ambient floating shapes — abstract layer of depth behind the hero
+   text, on top of the photo, drifting slowly for a lively but subtle
+   background motion. */
+.hero__ambient {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+.hero__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.35;
+  background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+  animation: blob-drift 18s ease-in-out infinite;
+}
+.hero__blob--1 { width: 340px; height: 340px; top: 8%; left: 6%; animation-duration: 20s; }
+.hero__blob--2 { width: 260px; height: 260px; bottom: 10%; right: 10%; animation-duration: 24s; animation-delay: -6s; background: radial-gradient(circle, #ffffff 0%, transparent 70%); opacity: 0.12; }
+.hero__blob--3 { width: 200px; height: 200px; top: 45%; right: 20%; animation-duration: 16s; animation-delay: -3s; }
+@keyframes blob-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.08); }
+  66% { transform: translate(-20px, 25px) scale(0.95); }
+}
+@media (max-width: 640px) { .hero__blob--3 { display: none; } }
+@media (prefers-reduced-motion: reduce) { .hero__blob { animation: none; } }
+
+/* Headline clip-path "wipe" reveal, layered on top of the fade/rise the
+   parent <h1> already gets. */
+.reveal-text {
+  display: inline-block;
+  clip-path: inset(0 100% 0 0);
+  animation: text-wipe 0.9s var(--ease) forwards;
+  animation-delay: 0.5s;
+}
+@keyframes text-wipe {
+  to { clip-path: inset(0 0 0 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-text { clip-path: inset(0 0 0 0); animation: none; }
 }
 
 /* Staggered entrance for hero content (above-the-fold, so it plays on

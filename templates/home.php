@@ -7,13 +7,18 @@ require __DIR__ . '/icons.php';
   <div class="hero__media">
     <img src="/assets/images/photo-community-1.webp" alt="" loading="eager" fetchpriority="high">
   </div>
+  <div class="hero__ambient" aria-hidden="true">
+    <span class="hero__blob hero__blob--1"></span>
+    <span class="hero__blob hero__blob--2"></span>
+    <span class="hero__blob hero__blob--3"></span>
+  </div>
   <div class="container hero__inner">
     <p class="hero__eyebrow-row">
       <span class="hero__eyebrow"><?= e($page['hero']['eyebrow']) ?></span>
     </p>
     <p class="hero__tagline"><?= e($page['hero']['tagline']) ?></p>
     <h1>
-      <span class="hero__headline-lead"><?= e($page['hero']['headline']) ?></span>
+      <span class="hero__headline-lead"><span class="reveal-text"><?= e($page['hero']['headline']) ?></span></span>
       <?php if (!empty($page['hero']['subheadline'])): ?><span class="hero__headline-sub"><?= e($page['hero']['subheadline']) ?></span><?php endif; ?>
     </h1>
     <div class="hero__actions">
@@ -21,10 +26,14 @@ require __DIR__ . '/icons.php';
       <a class="btn btn-outline" href="/about-us">Learn More</a>
     </div>
     <div class="hero__trust">
-      <?php foreach (array_slice($page['stats']['items'], 0, 3) as $stat): ?>
+      <?php $trustIcons = ['book', 'users', 'sparkle']; ?>
+      <?php foreach (array_slice($page['stats']['items'], 0, 3) as $i => $stat): ?>
         <div class="hero__trust-item">
-          <strong><?= (int) $stat['value'] ?><?= e($stat['suffix']) ?></strong>
-          <span><?= e($stat['short_label'] ?? $stat['label']) ?></span>
+          <span class="hero__trust-icon"><?= icon($trustIcons[$i] ?? 'sparkle') ?></span>
+          <span class="hero__trust-text">
+            <strong><?= (int) $stat['value'] ?><?= e($stat['suffix']) ?></strong>
+            <span><?= e($stat['short_label'] ?? $stat['label']) ?></span>
+          </span>
         </div>
       <?php endforeach; ?>
     </div>
