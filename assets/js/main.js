@@ -13,7 +13,7 @@
 
     nav.querySelectorAll('.has-children > a').forEach(function (link) {
       link.addEventListener('click', function (event) {
-        if (window.innerWidth > 920) return;
+        if (window.innerWidth >= 1200) return;
         var parent = link.parentElement;
         if (!parent.classList.contains('is-open')) {
           event.preventDefault();
@@ -29,7 +29,7 @@
   // Close mobile nav on link click / resize back to desktop
   document.querySelectorAll('.main-nav a').forEach(function (link) {
     link.addEventListener('click', function () {
-      if (window.innerWidth <= 920 && !link.parentElement.classList.contains('has-children')) {
+      if (window.innerWidth < 1200 && !link.parentElement.classList.contains('has-children')) {
         nav.classList.remove('is-open');
         toggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
@@ -84,6 +84,40 @@
       counters.forEach(function (el) { counterObserver.observe(el); });
     } else {
       counters.forEach(animateCounter);
+    }
+  }
+
+  // Subtle mouse-parallax on the hero photo. Targets the media wrapper
+  // (not the <img>, which already runs its own CSS zoom animation) so the
+  // two transforms don't fight over the same element.
+  var hero = document.getElementById('hero');
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (hero && !reduceMotion && window.matchMedia('(pointer: fine)').matches) {
+    var heroMedia = hero.querySelector('.hero__media');
+    var ticking = false;
+    var targetX = 0, targetY = 0, currentX = 0, currentY = 0;
+
+    hero.addEventListener('mousemove', function (event) {
+      var rect = hero.getBoundingClientRect();
+      var relX = (event.clientX - rect.left) / rect.width - 0.5;
+      var relY = (event.clientY - rect.top) / rect.height - 0.5;
+      targetX = relX * -16;
+      targetY = relY * -16;
+      if (!ticking) {
+        window.requestAnimationFrame(render);
+        ticking = true;
+      }
+    });
+
+    function render() {
+      currentX += (targetX - currentX) * 0.08;
+      currentY += (targetY - currentY) * 0.08;
+      heroMedia.style.transform = 'translate3d(' + currentX.toFixed(1) + 'px, ' + currentY.toFixed(1) + 'px, 0)';
+      if (Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1) {
+        window.requestAnimationFrame(render);
+      } else {
+        ticking = false;
+      }
     }
   }
 })();

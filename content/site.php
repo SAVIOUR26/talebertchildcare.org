@@ -3,14 +3,23 @@
  * Global, cross-page content: nav structure, brand strings, footer, contact
  * destination. Edit this file to change anything that appears on every page.
  * Per-page copy lives in content/pages/*.php.
+ *
+ * Content authority note: as of the client's "Talebert Child Care Uganda
+ * organization profile" document, program messaging is deliberately
+ * narrowed to two focus areas — Vulnerable Children and Street Children —
+ * plus one future plan (an orphanage combined with a school). That
+ * document is now the source of truth for mission/vision/values/founder
+ * copy, superseding the original live-site scrape where they conflict
+ * (e.g. the live site named the founder "Mrs. Talemwa Edith"; the profile
+ * document names "Pastor Robert Talemwa").
  */
 
 return [
     'org_name'   => 'Talebert Child Care Uganda',
     'wordmark'   => 'TALEBERT',
     'tagline'    => 'CHILD CARE UGANDA',
-    'founder'    => 'Mrs. Talemwa Edith',
-    'founded'    => 2007,
+    'motto'      => 'Giving Every Child Hope, Love, and a Future.',
+    'founder'    => 'Pastor Robert Talemwa',
 
     // Primary navigation, in on-site order. 'url' is the clean slug used
     // throughout the rebuild (sourced from the WP REST API, since the live
@@ -24,9 +33,8 @@ return [
             ['label' => 'Our Team', 'url' => '/our-team'],
         ]],
         ['label' => 'Programs', 'url' => '/programs', 'children' => [
-            ['label' => 'Education Support', 'url' => '/education-support'],
-            ['label' => 'Young Mothers Training', 'url' => '/young-mothers-training'],
-            ['label' => 'Health Care & Advocacy', 'url' => '/health-care-advocacy'],
+            ['label' => 'Vulnerable Children', 'url' => '/vulnerable-children'],
+            ['label' => 'Street Children', 'url' => '/street-children'],
             ['label' => 'Future Plans', 'url' => '/future-plans'],
         ]],
         ['label' => 'Get Involved', 'url' => '/get-involved', 'children' => [
@@ -46,22 +54,26 @@ return [
     'header_cta' => ['label' => 'DONATE NOW', 'url' => '/donate'],
 
     // No working social links exist on the live site (the footer Facebook
-    // icon has no href at all). Add real links here when available — the
-    // footer template already knows how to render this array.
+    // icon has no href at all), and the profile document's contact section
+    // is entirely placeholders ("Insert Facebook page", etc). Add real
+    // links here once available — the footer template already knows how
+    // to render this array.
     'social' => [
         // ['label' => 'Facebook', 'icon' => 'facebook', 'url' => 'https://facebook.com/...'],
     ],
 
-    // The live site publishes no phone/address/email anywhere, and the
-    // Contact Us page itself is an empty stub. This is a placeholder — swap
-    // it for the real inbox before going live, and see templates/contact
-    // handler for where SMTP config will eventually go.
+    // Both the live site and the new profile document leave contact
+    // details as placeholders ("Insert official email address", etc).
+    // This is a placeholder — swap it for the real inbox before going
+    // live, and see public/contact-handler.php for where SMTP config will
+    // eventually go.
     'contact_email' => 'info@talebertchildcare.org',
 
     // The live site's shared footer widget (rendered on every page) also
-    // repeats this exact commitment line above a "Programs" quick-link list.
+    // repeats a version of this commitment line above a "Programs"
+    // quick-link list.
     'footer' => [
-        'commitment' => 'At Talebert Child Care Uganda, we are unwavering in our dedication to transforming lives.',
+        'commitment' => 'The safety and well-being of every child is the foundation of everything we do.',
         'copyright' => 'Copyright &copy; ' . date('Y') . ' Talebert Child Care Uganda',
         // The live site auto-generated Privacy Policy / Terms pages via a
         // plugin (wpautoterms) with boilerplate legal text. That text isn't

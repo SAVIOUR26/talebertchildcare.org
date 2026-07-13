@@ -60,6 +60,31 @@ require __DIR__ . '/icons.php';
       </div>
     <?php endif; ?>
 
+    <?php if (!empty($page['founder_message'])): ?>
+      <div class="founder-letter reveal">
+        <h3><?= e($page['founder_message']['heading']) ?></h3>
+        <?php foreach ($page['founder_message']['paragraphs'] as $paragraph): ?>
+          <p><?= e($paragraph) ?></p>
+        <?php endforeach; ?>
+        <p class="founder-letter__signature"><?= e($page['founder_message']['signature']) ?></p>
+      </div>
+    <?php endif; ?>
+
+    <?php if (!empty($page['lists'])): ?>
+      <div class="info-lists reveal" style="margin-bottom: var(--space-4)">
+        <?php foreach ($page['lists'] as $list): ?>
+          <div class="info-list">
+            <h3><?= e($list['heading']) ?></h3>
+            <ul>
+              <?php foreach ($list['items'] as $item): ?>
+                <li><?= e($item) ?></li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    <?php endif; ?>
+
     <?php if (!empty($page['cards'])): ?>
       <div class="card-grid <?= count($page['cards']) >= 3 ? 'cols-3' : '' ?> reveal" style="margin-top: var(--space-4)">
         <?php foreach ($page['cards'] as $i => $card): ?>

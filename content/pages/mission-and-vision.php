@@ -1,24 +1,25 @@
 <?php
 /**
- * The only sub-page whose exact topic also has matching verbatim copy on
- * the homepage (Mission + Vision blocks). Reused word-for-word.
+ * Source: organization profile document, "OUR VISION" / "OUR MISSION" /
+ * "OUR MOTTO" sections. Supersedes the live-site scrape's mission/vision
+ * wording per the client's updated direction.
  */
 
 return [
     'slug'        => 'mission-and-vision',
     'title'       => 'Mission and Vision – TALEBERT',
-    'description' => 'To empower disadvantaged children, young mothers, and vulnerable communities in Uganda by providing education, vocational training, advocacy, and holistic support.',
+    'description' => 'To rescue, protect, nurture, educate, and empower orphaned, vulnerable, and street-connected children through quality care, family strengthening, education support, healthcare, life skills, and community partnerships.',
     'template'    => 'page',
     'heading'     => 'Mission and Vision',
     'blocks' => [
         [
             'heading' => 'Mission',
-            'body'    => 'To empower disadvantaged children, young mothers, and vulnerable communities in Uganda by providing education, vocational training, advocacy, and holistic support. We are committed to breaking the cycle of poverty, fostering self-reliance, and creating a brighter future for generations to come.',
+            'body'    => 'To rescue, protect, nurture, educate, and empower orphaned, vulnerable, and street-connected children through quality care, family strengthening, education support, healthcare, life skills, and community partnerships that enable every child to live with dignity, hope, and opportunity.',
         ],
         [
             'heading' => 'Vision',
-            'body'    => 'A Uganda where every child has access to quality education, every mother is empowered to provide for her family, and communities thrive with dignity, opportunity, and hope.',
+            'body'    => 'To see every orphaned, vulnerable, and street-connected child in Uganda grow up in a safe, loving, and supportive environment where they are protected, educated, healthy, and empowered to become responsible and productive members of society.',
         ],
     ],
-    'commitment' => 'At Talebert Child Care Uganda, we are unwavering in our dedication to transforming lives. We commit to empowering disadvantaged children, young mothers, and vulnerable communities by providing education, skills, and resources necessary to break the cycle of poverty. With integrity, compassion, and collaboration, we strive to create a brighter and sustainable future for all those we serve.',
+    'commitment' => 'Giving Every Child Hope, Love, and a Future.',
 ];

@@ -1,25 +1,23 @@
 <?php
 /**
- * Empty stub on the live site; the six program cards below are reused
- * verbatim from the homepage. Only four programs have their own page on
- * the live nav (Education Support, Young Mothers Training, Health Care &
- * Advocacy, Future Plans) — Community Development and Talent & Skills
- * Development are homepage-only cards with no destination page, so they
- * render without a link here rather than pointing at an invented URL.
+ * Programs hub. Per the client's direction, messaging is narrowed to two
+ * focus areas (Vulnerable Children, Street Children) plus one future
+ * plan (an orphanage combined with a school) — see content/site.php.
+ * Source: organization profile document, Part 5 ("The Need").
  */
 
 return [
     'slug'        => 'programs',
     'title'       => 'Programs – TALEBERT',
-    'description' => 'Educational support, young mothers empowerment, healthcare and advocacy, community development, talent and skills development, and our future school project.',
+    'description' => 'Talebert Child Care Uganda focuses on two things: caring for vulnerable children, and rescuing and rehabilitating street children — with a future plan to build a permanent orphanage and school.',
     'template'    => 'page',
     'heading'     => 'Programs',
+    'intro' => [
+        'Talebert Child Care Uganda exists to respond to the challenges facing Uganda\'s most at-risk children with practical care, education, protection, family support, and opportunities that restore dignity and hope.',
+    ],
     'cards' => [
-        ['title' => 'Educational Support', 'body' => 'We believe education is the cornerstone of opportunity. Our educational support program ensures that disadvantaged children can attend school and thrive academically.', 'icon' => '/assets/images/icon-education.webp', 'url' => '/education-support'],
-        ['title' => 'Young Mothers Empowerment', 'body' => 'This program focuses on empowering young mothers with the skills and resources to support their families and become financially independent.', 'icon' => '/assets/images/icon-young-mothers.webp', 'url' => '/young-mothers-training'],
-        ['title' => 'Healthcare & Advocacy', 'body' => 'We work to improve health outcomes for children, young mothers, and the broader community while advocating for their rights.', 'icon' => '/assets/images/icon-healthcare.webp', 'url' => '/health-care-advocacy'],
-        ['title' => 'Community Development Initiatives', 'body' => 'Our work extends beyond individuals to uplift entire communities by fostering sustainable development.', 'icon' => '/assets/images/icon-community.webp', 'url' => null],
-        ['title' => 'Talent and Skills Development', 'body' => 'We recognize the importance of nurturing talents and skills as pathways to self-discovery and sustainable livelihoods.', 'icon' => '/assets/images/icon-talent-skills.webp', 'url' => null],
-        ['title' => 'Future Plans: Talebert School Project', 'body' => 'Our dream is to establish a school that will provide quality education and a nurturing environment for all children under our care.', 'icon' => '/assets/images/icon-future-plans.webp', 'url' => '/future-plans'],
+        ['title' => 'Vulnerable Children', 'body' => 'Practical care, protection, education, and family support for children at risk due to poverty, neglect, abuse, or family breakdown.', 'icon' => '/assets/images/icon-community.webp', 'url' => '/vulnerable-children'],
+        ['title' => 'Street Children', 'body' => 'Rescue, rehabilitation, and reintegration for children living on the streets — restoring dignity and a new chapter of life.', 'icon' => '/assets/images/icon-healthcare.webp', 'url' => '/street-children'],
+        ['title' => 'Future Plans: Orphanage & School', 'body' => 'Our five-year goal is a safe, well-equipped children\'s care centre — an orphanage together with a school.', 'icon' => '/assets/images/icon-future-plans.webp', 'url' => '/future-plans'],
     ],
 ];

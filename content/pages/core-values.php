@@ -1,13 +1,24 @@
 <?php
-/** Empty stub on the live site — no core values text exists anywhere. */
+/**
+ * Source: organization profile document, "PART 2 – OUR CORE VALUES".
+ */
 
 return [
     'slug'        => 'core-values',
     'title'       => 'Core Values – TALEBERT',
-    'description' => 'The principles that guide Talebert Child Care Uganda.',
+    'description' => 'Every child matters. Every child deserves love, dignity, and the opportunity to thrive.',
     'template'    => 'page',
     'heading'     => 'Core Values',
-    'coming_soon' => true,
-    'coming_soon_note' => "We're putting our core values into words — check back soon. In the meantime, read about our mission and vision.",
-    'coming_soon_link' => ['label' => 'Mission and Vision', 'url' => '/mission-and-vision'],
+    'intro' => [
+        'Every child matters. Every child deserves love, dignity, and the opportunity to thrive.',
+    ],
+    'cards' => [
+        ['title' => 'Love', 'body' => 'We serve every child with compassion, kindness, and unconditional care.'],
+        ['title' => 'Child Protection', 'body' => 'The safety, dignity, and well-being of every child are our highest priorities.'],
+        ['title' => 'Integrity', 'body' => 'We uphold honesty, transparency, accountability, and ethical stewardship in everything we do.'],
+        ['title' => 'Excellence', 'body' => 'We strive to provide the highest quality care and services to every child entrusted to us.'],
+        ['title' => 'Respect', 'body' => 'We value every child regardless of background, gender, disability, or circumstance.'],
+        ['title' => 'Hope', 'body' => 'We believe every child has the potential to overcome challenges and build a brighter future.'],
+        ['title' => 'Partnership', 'body' => 'We work together with families, churches, communities, donors, and government agencies to create lasting change.'],
+    ],
 ];

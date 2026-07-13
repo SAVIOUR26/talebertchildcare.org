@@ -1,20 +1,18 @@
 <?php
 /**
- * Empty stub on the live site. The only verifiable "story" fact published
- * anywhere is the founding line reused below; everything else is marked
- * coming_soon rather than invented. See BRAND.md, finding 1-2.
+ * Source: organization profile document, "PART 3 – OUR STORY".
  */
 
 return [
     'slug'        => 'our-story',
     'title'       => 'Our Story – TALEBERT',
-    'description' => 'Talebert Child Care Uganda was established in 2007 by Mrs. Talemwa Edith.',
+    'description' => 'Talebert Child Care Uganda was founded out of a deep concern for children who had no one to care for them.',
     'template'    => 'page',
     'heading'     => 'Our Story',
     'intro' => [
-        'Talebert Child Care Uganda was established in 2007 by <strong>Mrs. Talemwa Edith</strong>, and has since been a beacon of hope for disadvantaged children, young mothers, and vulnerable communities in Uganda.',
+        'Talebert Child Care Uganda was founded out of a deep concern for children who had no one to care for them. Seeing children living on the streets, suffering from neglect, poverty, abuse, and lack of education inspired us to take action.',
+        'What began as a simple desire to help vulnerable children has grown into a vision of restoring hope and creating opportunities for every child to experience love, safety, education, and a brighter future.',
+        'Our work is driven by the belief that no child should be forgotten. Every child deserves protection, belonging, and the chance to grow into a responsible and productive adult.',
     ],
-    'image'       => '/assets/images/photo-community-2.webp',
-    'coming_soon' => true,
-    'coming_soon_note' => 'The fuller story of how Talebert started is being written up — check back soon, or read more about our mission on the About Us page.',
+    'image' => '/assets/images/photo-community-2.webp',
 ];

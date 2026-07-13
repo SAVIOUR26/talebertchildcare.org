@@ -121,3 +121,55 @@ plural ("we", "our"), verbs like "empower", "uplift", "transform lives",
    keeps the exact button copy but points them at the obvious matching
    internal page (Donate → `/donate`, More... → `/about-us`, Proceed and
    Support → `/get-involved`) so the site is actually usable.
+
+## Content pivot: the organization profile document (supersedes the live-site scrape)
+
+On 2026-07-13 the client added `Talebert Child Care Uganda organization
+profile.docx` to the repo and gave explicit direction: narrow program
+messaging to two focus areas — **Vulnerable Children** and **Street
+Children** — plus one future plan (an **orphanage combined with a
+school**), and remove literature about every other program. That
+document is now the authoritative content source, superseding the live
+WordPress scrape wherever the two disagree. Extracted via direct
+`word/document.xml` parsing (LibreOffice headless conversion failed in
+this sandbox). Notable consequences:
+
+- **Founder identity changed.** The live site named the founder "Mrs.
+  Talemwa Edith" (est. 2007). The profile document names the founder
+  **Pastor Robert Talemwa** and gives no specific founding year — the
+  rebuild now uses the document's name throughout (`content/site.php`,
+  Our Team, Our Story) and the unverified 2007 date was dropped rather
+  than guessed at.
+- **Mission, Vision, and Motto rewritten** from the document's own
+  wording (Parts "OUR VISION" / "OUR MISSION" / "OUR MOTTO"). The old
+  live-site Mission/Vision (which centered young mothers and community
+  development) is retired.
+- **Core Values, Our Story, and Our Team** — all previously empty stubs —
+  now have real content (Parts 2, 3, 4 of the document).
+- **Programs cut from six to two, plus one future plan.** Removed
+  entirely: Education Support, Young Mothers Training, Health Care &
+  Advocacy, Community Development, Talent & Skills Development (none of
+  these are named as standalone programs in the client's new direction).
+  Added: `/vulnerable-children` (Part 5 + supporting facets from Parts 6,
+  7, 9, 10, 13) and `/street-children` (Part 8, a direct match). The old
+  program URLs 301-redirect to `/programs` (see root `.htaccess`) since
+  the site was already deployed once.
+- **Future Plans reframed** from "Talebert School Project" to "Orphanage &
+  School," combining the document's residential-care rationale (Part 10)
+  with its Five-Year Goals (Part 17).
+- **Get Involved / Donate / Volunteer / Partner With Us** now quote Part
+  18 ("Partnership Opportunities") instead of the old young-mothers-era
+  copy.
+- **Success Stories** uses the document's one example testimony (Part
+  15) — the document itself labels this a placeholder ("Replace this
+  example with real testimonies... with the appropriate permission"), so
+  it's presented on-site as an explicitly illustrative sample, not a
+  verified real story.
+- **Contact info still has no real values to use** — the document's own
+  contact section is entirely placeholders ("Insert official email
+  address," etc.), same as the live site. `content/site.php`'s
+  placeholder email stands until real details are provided.
+- Not yet incorporated (present in the document but out of scope for this
+  pass — ask if you want them added): Part 16 Governance/Safeguarding,
+  the full Part 17 strategic plan narrative beyond the Five-Year Goals
+  list, and Part 20's back-cover/closing-scripture copy.

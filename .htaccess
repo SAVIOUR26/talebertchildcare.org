@@ -23,6 +23,14 @@ RewriteRule ^(BRAND|CLAUDE)\.md$ - [F,L]
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]
 
+# Program pages retired when messaging narrowed to two focus areas
+# (Vulnerable Children, Street Children) plus one future plan — redirect
+# in case these URLs were already crawled/bookmarked from the first
+# deploy.
+Redirect 301 /education-support /programs
+Redirect 301 /young-mothers-training /programs
+Redirect 301 /health-care-advocacy /programs
+
 # Everything else (page slugs like /about-us, /donate, ...) goes through
 # the front controller.
 RewriteRule ^ /public/router.php [L]

@@ -1,18 +1,9 @@
 <?php
 /** @var array $page content/pages/home.php */
 require __DIR__ . '/icons.php';
-
-// The live site's headline is one sentence split by a colon into a lead
-// clause and a supporting clause. Presenting them as two typographic
-// tiers (instead of one uniform wall of bold text) — the words are still
-// 100% verbatim, only how they're broken across lines changes.
-$headline = $page['hero']['headline'];
-$headlineParts = explode(':', $headline, 2);
-$headlineLead = trim($headlineParts[0]) . (count($headlineParts) > 1 ? ':' : '');
-$headlineSub = count($headlineParts) > 1 ? trim($headlineParts[1]) : '';
 ?>
 
-<section class="hero">
+<section class="hero" id="hero">
   <div class="hero__media">
     <img src="/assets/images/photo-community-1.webp" alt="" loading="eager" fetchpriority="high">
   </div>
@@ -22,12 +13,20 @@ $headlineSub = count($headlineParts) > 1 ? trim($headlineParts[1]) : '';
     </p>
     <p class="hero__tagline"><?= e($page['hero']['tagline']) ?></p>
     <h1>
-      <span class="hero__headline-lead"><?= e($headlineLead) ?></span>
-      <?php if ($headlineSub): ?><span class="hero__headline-sub"><?= e($headlineSub) ?></span><?php endif; ?>
+      <span class="hero__headline-lead"><?= e($page['hero']['headline']) ?></span>
+      <?php if (!empty($page['hero']['subheadline'])): ?><span class="hero__headline-sub"><?= e($page['hero']['subheadline']) ?></span><?php endif; ?>
     </h1>
     <div class="hero__actions">
       <a class="btn btn-primary" href="<?= e($page['hero']['cta']['url']) ?>"><?= e($page['hero']['cta']['label']) ?></a>
       <a class="btn btn-outline" href="/about-us">Learn More</a>
+    </div>
+    <div class="hero__trust">
+      <?php foreach (array_slice($page['stats']['items'], 0, 3) as $stat): ?>
+        <div class="hero__trust-item">
+          <strong><?= (int) $stat['value'] ?><?= e($stat['suffix']) ?></strong>
+          <span><?= e($stat['short_label'] ?? $stat['label']) ?></span>
+        </div>
+      <?php endforeach; ?>
     </div>
   </div>
   <div class="hero__scroll-cue" aria-hidden="true"><span>Scroll</span><span class="stem"></span></div>
@@ -61,7 +60,7 @@ $headlineSub = count($headlineParts) > 1 ? trim($headlineParts[1]) : '';
       <h2><?= e($page['stats']['subheading']) ?></h2>
     </div>
     <div class="stats-grid">
-      <?php $statIcons = ['book', 'heart-hands', 'users', 'sparkle']; ?>
+      <?php $statIcons = ['book', 'users', 'sparkle']; ?>
       <?php foreach ($page['stats']['items'] as $i => $stat): ?>
         <div class="stat-card reveal" style="transition-delay: <?= $i * 80 ?>ms">
           <div class="stat-icon"><?= icon($statIcons[$i] ?? 'sparkle') ?></div>

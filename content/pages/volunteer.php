@@ -1,17 +1,17 @@
 <?php
 /**
- * Empty stub on the live site; intro line reused verbatim from the
- * homepage's "Get Involved" list.
+ * Source: organization profile document, "PART 18 – PARTNERSHIP
+ * OPPORTUNITIES".
  */
 
 return [
     'slug'        => 'volunteer',
     'title'       => 'Volunteer – TALEBERT',
-    'description' => 'Share your time and skills to inspire change in our programs.',
+    'description' => 'Volunteer your professional skills, provide vocational training opportunities, or pray for our children, staff, and ministry.',
     'template'    => 'page',
     'heading'     => 'Volunteer',
     'intro' => [
-        'Share your time and skills to inspire change in our programs.',
+        'Volunteer your professional skills, help provide vocational training opportunities, or pray for our children, staff, and ministry.',
     ],
     'cta' => ['label' => 'Get in touch', 'url' => '/contact-us'],
 ];

@@ -1,22 +1,22 @@
 <?php
 /**
- * Empty stub on the live site; copy reused verbatim from the homepage's
- * "You can help make a difference!" section.
+ * Source: organization profile document, "PART 18 – PARTNERSHIP
+ * OPPORTUNITIES".
  */
 
 return [
     'slug'        => 'get-involved',
     'title'       => 'Get Involved – TALEBERT',
-    'description' => 'You can help make a difference! Donate, volunteer, or partner with Talebert Child Care Uganda.',
+    'description' => 'The needs of vulnerable children are too great for one organization to meet alone. We invite compassionate individuals and organizations to join us in giving children a brighter future.',
     'template'    => 'page',
     'heading'     => 'Get Involved',
     'intro' => [
-        'You can help make a difference! Here is how:',
+        'The needs of vulnerable children are too great for one organization to meet alone. We invite compassionate individuals and organizations to join us in giving children a brighter future.',
     ],
     'cards' => [
-        ['title' => 'Donate', 'body' => 'Your financial support can provide education, materials, and hope to a child in need.', 'url' => '/donate'],
-        ['title' => 'Volunteer', 'body' => 'Share your time and skills to inspire change in our programs.', 'url' => '/volunteer'],
-        ['title' => 'Partner', 'body' => 'Collaborate with us as an individual, business, or organization to extend our reach and impact.', 'url' => '/partner-with-us'],
+        ['title' => 'Donate', 'body' => 'Sponsor a child, fund healthcare and nutrition, or donate food, clothing, and medical supplies.', 'url' => '/donate'],
+        ['title' => 'Volunteer', 'body' => 'Volunteer your professional skills, or help provide vocational training opportunities.', 'url' => '/volunteer'],
+        ['title' => 'Partner', 'body' => 'Partner with us as a church, business, or charitable organization — or support construction of children\'s facilities.', 'url' => '/partner-with-us'],
     ],
-    'closing' => 'Take the first step to support our mission today! Together, we can transform lives and create lasting change.',
+    'closing' => 'Every contribution, whether large or small, helps provide protection, education, healthcare, nourishment, and hope to children who need it most. Your partnership is an investment in lives that can influence families, communities, and future generations.',
 ];
