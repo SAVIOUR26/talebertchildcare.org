@@ -1,12 +1,15 @@
 name: Deploy to production (FTP)
 
-# Default trigger: push to main (i.e. once this rebuild is reviewed and
-# merged), plus an on-demand button in the Actions tab. Change the branch
-# below, or remove the push trigger entirely if you'd rather deploy purely
-# by hand.
+# Auto-deploys on every push to claude/rebuild-talebert-childcare-7me8jp —
+# this repo's current default branch (there is no "main" yet). A manual
+# "Run workflow" button in the Actions tab still works as a fallback.
+#
+# Once this branch is merged into a permanent "main" and that becomes the
+# default branch, update the branch name below to "main" so deploys keep
+# firing automatically without a manual step.
 on:
   push:
-    branches: [main]
+    branches: [claude/rebuild-talebert-childcare-7me8jp]
   workflow_dispatch: {}
 
 jobs:
