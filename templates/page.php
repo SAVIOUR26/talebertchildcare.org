@@ -70,6 +70,25 @@ require __DIR__ . '/icons.php';
       </div>
     <?php endif; ?>
 
+    <?php if (!empty($page['team'])): ?>
+      <div class="section-heading reveal" style="margin-top: var(--space-5)">
+        <p class="eyebrow">Board</p>
+        <h2>Meet the Board</h2>
+      </div>
+      <div class="team-grid reveal">
+        <?php foreach ($page['team'] as $i => $member): ?>
+          <div class="team-card" style="transition-delay: <?= ($i % 3) * 80 ?>ms">
+            <div class="team-card__photo">
+              <img src="<?= e($member['photo']) ?>" alt="<?= e($member['name']) ?>" loading="lazy" width="640" height="800">
+            </div>
+            <h3><?= e($member['name']) ?></h3>
+            <p class="team-card__role"><?= e($member['role']) ?></p>
+            <p class="team-card__location"><?= e($member['location']) ?></p>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    <?php endif; ?>
+
     <?php if (!empty($page['lists'])): ?>
       <div class="info-lists reveal" style="margin-bottom: var(--space-4)">
         <?php foreach ($page['lists'] as $list): ?>

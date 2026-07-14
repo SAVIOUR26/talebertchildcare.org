@@ -173,3 +173,25 @@ this sandbox). Notable consequences:
   pass — ask if you want them added): Part 16 Governance/Safeguarding,
   the full Part 17 strategic plan narrative beyond the Five-Year Goals
   list, and Part 20's back-cover/closing-scripture copy.
+
+## Board photos and roles (2026-07-14)
+
+The client uploaded a `/TEAM` folder with four professional headshots and
+gave the board roster directly in chat (not in the profile document).
+This resolved the founder-identity question from the previous section:
+**both names are real people on the board** — Pastor Robert Talemwa
+(Founder & Chairperson) and Edith Talemwa (Vice Chairperson) — the live
+site had simply listed the wrong one as "founder." Full roster, per the
+client:
+
+- Pastor Robert Talemwa — Founder & Chairperson (featured with his
+  message on Our Team, per BRAND.md's founder_message section)
+- Edith Talemwa — Vice Chairperson — Uganda (UG)
+- Maggie Mbabazi Smith — Board Member (Director) — United Kingdom (UK)
+- Frank Kizito — Finance — Uganda (UG)
+
+Photos were center-cropped to a consistent 4:5 portrait ratio and
+converted to WebP (`assets/images/team/`); originals kept at
+`assets/originals/team/`. Frank's photo is a lower-resolution scanned
+passport photo — kept as-is (still clearly presentable at card size) since
+it's the only photo available for him.
