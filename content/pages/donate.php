@@ -16,10 +16,20 @@ return [
         'You can partner with us by sponsoring a child, supporting education programs, funding healthcare and nutrition, or donating food, clothing, and medical supplies.',
     ],
     'donate_links' => [
-        'note' => "Talebert Child Care Uganda operates under Heal Now Ministries International (HNMI), our mother organization. All donations to Talebert are made to, and managed by, HNMI directly — use either option below to give.",
+        'note' => "Talebert Child Care Uganda operates under Heal Now Ministries International (HNMI), our mother organization. All donations to Talebert are made to, and managed by, HNMI directly — use any of the options below to give.",
         'items' => [
             ['label' => 'Donate via HNMI Website', 'url' => 'https://healnowministriesint.org/donate/'],
             ['label' => 'Donate via PayPal', 'url' => 'https://www.paypal.com/donate/?hosted_button_id=WZXXEQM9MVSXS'],
+        ],
+    ],
+    'bank_details' => [
+        'heading' => 'Bank Transfer Details',
+        'items' => [
+            ['label' => 'Bank Name', 'value' => 'Equity Bank'],
+            ['label' => 'Account Name', 'value' => 'Heal Now Ministries International Ltd'],
+            ['label' => 'Account Number', 'value' => '1003201270009'],
+            ['label' => 'Branch', 'value' => 'KATWE'],
+            ['label' => 'Swift Code', 'value' => 'EQBLUGKA'],
         ],
     ],
 ];

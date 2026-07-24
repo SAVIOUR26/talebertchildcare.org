@@ -120,4 +120,33 @@
       }
     }
   }
+
+  // Copy-to-clipboard for bank details (and anywhere else with .copy-btn)
+  document.querySelectorAll('.copy-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var value = btn.getAttribute('data-copy');
+      var done = function () {
+        var original = btn.textContent;
+        btn.textContent = 'Copied!';
+        btn.classList.add('is-copied');
+        setTimeout(function () {
+          btn.textContent = original;
+          btn.classList.remove('is-copied');
+        }, 1500);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(value).then(done, done);
+      } else {
+        var temp = document.createElement('textarea');
+        temp.value = value;
+        temp.style.position = 'fixed';
+        temp.style.opacity = '0';
+        document.body.appendChild(temp);
+        temp.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(temp);
+        done();
+      }
+    });
+  });
 })();

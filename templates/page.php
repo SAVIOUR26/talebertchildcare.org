@@ -152,6 +152,23 @@ require __DIR__ . '/icons.php';
       </div>
     <?php endif; ?>
 
+    <?php if (!empty($page['bank_details'])): ?>
+      <div class="bank-details reveal">
+        <h3><?= e($page['bank_details']['heading']) ?></h3>
+        <dl>
+          <?php foreach ($page['bank_details']['items'] as $item): ?>
+            <div class="bank-details__row">
+              <dt><?= e($item['label']) ?></dt>
+              <dd>
+                <span class="bank-details__value"><?= e($item['value']) ?></span>
+                <button type="button" class="copy-btn" data-copy="<?= e($item['value']) ?>">Copy</button>
+              </dd>
+            </div>
+          <?php endforeach; ?>
+        </dl>
+      </div>
+    <?php endif; ?>
+
     <?php if (!empty($page['closing'])): ?>
       <div class="get-involved-closing reveal">
         <p><?= e($page['closing']) ?></p>
