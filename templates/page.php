@@ -105,7 +105,11 @@ require __DIR__ . '/icons.php';
     <?php endif; ?>
 
     <?php if (!empty($page['cards'])): ?>
-      <div class="card-grid <?= count($page['cards']) >= 3 ? 'cols-3' : '' ?> reveal" style="margin-top: var(--space-4)">
+      <?php
+        $cardCount = count($page['cards']);
+        $gridClass = $cardCount >= 4 ? 'cols-4' : ($cardCount >= 3 ? 'cols-3' : '');
+      ?>
+      <div class="card-grid <?= $gridClass ?> reveal" style="margin-top: var(--space-4)">
         <?php foreach ($page['cards'] as $i => $card): ?>
           <?php $tag = !empty($card['url']) ? 'a' : 'div'; ?>
           <<?= $tag ?> class="card <?= empty($card['icon']) ? 'numbered' : '' ?>" style="transition-delay: <?= ($i % 3) * 80 ?>ms" <?= !empty($card['url']) ? 'href="' . e($card['url']) . '"' : '' ?>>
@@ -119,6 +123,32 @@ require __DIR__ . '/icons.php';
             <?php if (!empty($card['url'])): ?><span class="card-link">Learn more <span class="arrow">&rarr;</span></span><?php endif; ?>
           </<?= $tag ?>>
         <?php endforeach; ?>
+      </div>
+    <?php endif; ?>
+
+    <?php if (!empty($page['certificate'])): ?>
+      <?php $cert = $page['certificate']; ?>
+      <div class="certificate reveal" style="margin-top: var(--space-5)">
+        <div class="certificate__text">
+          <h3><?= e($cert['heading']) ?></h3>
+          <p><?= e($cert['body']) ?></p>
+        </div>
+        <a class="certificate__frame" href="<?= e($cert['image']) ?>" target="_blank" rel="noopener">
+          <img src="<?= e($cert['image']) ?>" alt="<?= e($cert['caption']) ?>" loading="lazy">
+        </a>
+        <p class="certificate__caption"><?= e($cert['caption']) ?> — click to view full size</p>
+      </div>
+    <?php endif; ?>
+
+    <?php if (!empty($page['donate_links'])): ?>
+      <div class="donate-box reveal">
+        <p class="donate-box__note"><?= e($page['donate_links']['note']) ?></p>
+        <div class="donate-box__actions">
+          <?php foreach ($page['donate_links']['items'] as $link): ?>
+            <a class="btn btn-primary" href="<?= e($link['url']) ?>" target="_blank" rel="noopener"><?= e($link['label']) ?></a>
+          <?php endforeach; ?>
+        </div>
+        <p class="donate-box__external">You'll be taken to HNMI's website to complete your donation.</p>
       </div>
     <?php endif; ?>
 

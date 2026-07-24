@@ -35,6 +35,7 @@ return [
         ['label' => 'Programs', 'url' => '/programs', 'children' => [
             ['label' => 'Vulnerable Children', 'url' => '/vulnerable-children'],
             ['label' => 'Street Children', 'url' => '/street-children'],
+            ['label' => 'Children with Special Needs', 'url' => '/children-with-special-needs'],
             ['label' => 'Future Plans', 'url' => '/future-plans'],
         ]],
         ['label' => 'Get Involved', 'url' => '/get-involved', 'children' => [
@@ -68,6 +69,22 @@ return [
     // live, and see public/contact-handler.php for where SMTP config will
     // eventually go.
     'contact_email' => 'info@talebertchildcare.org',
+
+    // Talebert operates under Heal Now Ministries International (HNMI) —
+    // its mother organization. HNMI runs a wider range of ministries;
+    // Talebert is HNMI's focus specifically on children. Per the client
+    // (2026-07-24): all donations to Talebert are made to, and managed
+    // by, HNMI directly — hence the external donate links below rather
+    // than a Talebert-run payment flow.
+    'mother_org' => [
+        'name'       => 'Heal Now Ministries International',
+        'short_name' => 'HNMI',
+        'logo'       => '/assets/images/partner-hnmi.webp',
+        'website'    => 'https://healnowministriesint.org',
+        'donate_url' => 'https://healnowministriesint.org/donate/',
+        'paypal_url' => 'https://www.paypal.com/donate/?hosted_button_id=WZXXEQM9MVSXS',
+        'note'       => "Talebert Child Care Uganda operates under Heal Now Ministries International (HNMI), our mother organization. HNMI runs a wider range of ministries; Talebert is HNMI's focus on children specifically. All donations to Talebert are made to, and managed by, HNMI.",
+    ],
 
     // The live site's shared footer widget (rendered on every page) also
     // repeats a version of this commitment line above a "Programs"

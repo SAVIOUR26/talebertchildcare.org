@@ -681,6 +681,8 @@ section { padding-block: var(--space-5); }
 }
 @media (min-width: 640px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 980px) { .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 640px) { .card-grid.cols-4 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 980px) { .card-grid.cols-4 { grid-template-columns: repeat(4, 1fr); } }
 
 .card {
   position: relative;
@@ -917,6 +919,38 @@ a.card, button.card { text-align: left; }
 .team-card h3 { margin: var(--space-2) var(--space-2) 0.15rem; font-size: 1.1rem; }
 .team-card__role { color: var(--color-primary-dark); font-weight: 600; font-size: 0.9rem; margin: 0 var(--space-2); }
 .team-card__location { color: var(--color-text-muted); font-size: 0.82rem; margin: 0.2rem var(--space-2) 0; }
+
+.certificate {
+  max-width: 640px;
+  margin-inline: auto;
+  text-align: center;
+}
+.certificate__text h3 { color: var(--color-navy); }
+.certificate__text p { color: var(--color-text-muted); }
+.certificate__frame {
+  display: block;
+  margin: var(--space-3) auto 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 8px solid var(--color-white);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.certificate__frame:hover { transform: translateY(-4px) scale(1.01); box-shadow: var(--shadow-soft); }
+.certificate__frame img { width: 100%; height: auto; display: block; }
+.certificate__caption { margin-top: var(--space-2); font-size: 0.82rem; color: var(--color-text-muted); }
+
+.donate-box {
+  max-width: 640px;
+  margin: var(--space-4) auto 0;
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  text-align: center;
+}
+.donate-box__note { color: var(--color-text); margin-bottom: var(--space-3); }
+.donate-box__actions { display: flex; justify-content: center; gap: var(--space-2); flex-wrap: wrap; }
+.donate-box__external { margin-top: var(--space-2); font-size: 0.8rem; color: var(--color-text-muted); }
 
 .info-lists {
   display: grid;

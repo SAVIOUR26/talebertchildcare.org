@@ -195,3 +195,39 @@ converted to WebP (`assets/images/team/`); originals kept at
 `assets/originals/team/`. Frank's photo is a lower-resolution scanned
 passport photo — kept as-is (still clearly presentable at card size) since
 it's the only photo available for him.
+
+## Mother organization, certificate, and a third program area (2026-07-24)
+
+Four client-directed updates, all now live:
+
+1. **Certificate of Registration.** The client uploaded a genuine Wakiso
+   District Local Government "Certificate of Registration" (Reg. No.
+   WCBO/18/340, issued 2 Oct 2024, expires 1 Oct 2026) confirming
+   Talebert as a registered Community Based Organisation. Displayed on
+   About Us in a new `certificate` content section (framed image,
+   click-to-view-full-size); original archived to
+   `assets/originals/documents/`.
+2. **HNMI is the mother organization, not a peer partner.** The client
+   clarified that Heal Now Ministries International (HNMI) — previously
+   shown on the homepage as a generic "OUR PARTNERS" logo scraped from
+   the live site — is actually Talebert's mother organization. HNMI runs
+   a wider range of ministries; Talebert is HNMI's focus on children
+   specifically. Reframed sitewide: homepage section renamed "OUR MOTHER
+   ORGANIZATION" / "Operating Under", and an explanatory paragraph added
+   to About Us. New `content/site.php` key: `mother_org`.
+3. **Donations go through HNMI, not Talebert.** Per the client: all
+   donations to Talebert are made to, and managed by, HNMI directly. The
+   Donate page no longer says "coming soon" — it links out to HNMI's own
+   donate page (`healnowministriesint.org/donate/`) and PayPal button,
+   both `target="_blank"`, with a clear note explaining why.
+4. **Third program area: Children with Special Needs.** Added alongside
+   Vulnerable Children and Street Children per client direction. Unlike
+   those two, this is **not** in the organization profile document — there
+   is no source material with specific activities/impact claims for it.
+   To avoid inventing programmatic detail, the new page grounds its one
+   paragraph in the org's own already-established Core Value ("Respect: We
+   value every child regardless of background, gender, disability, or
+   circumstance") and is honestly marked `coming_soon` rather than
+   fabricating an activities list. Ask if you'd like to supply real
+   content for this page. Programs grid (home + hub) now uses a `cols-4`
+   layout to fit all four cards.

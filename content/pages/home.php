@@ -61,6 +61,12 @@ return [
                 'url'   => '/street-children',
             ],
             [
+                'title' => 'Children with Special Needs',
+                'body'  => 'The same love, protection, dignity, and opportunity to thrive as every other child in our care.',
+                'icon'  => '/assets/images/icon-young-mothers.webp',
+                'url'   => '/children-with-special-needs',
+            ],
+            [
                 'title' => 'Future Plans: Orphanage & School',
                 'body'  => 'Our five-year goal is a safe, well-equipped children\'s care centre — an orphanage together with a school.',
                 'icon'  => '/assets/images/icon-future-plans.webp',
@@ -97,14 +103,12 @@ return [
         'cta'     => ['label' => 'Proceed and Support', 'url' => '/get-involved'],
     ],
 
-    'partners' => [
-        'heading' => 'OUR PARTNERS',
-        // Only one genuine partner logo was found on the live site (HNMI).
-        // A "Powered By Thirdsan Enterprises" logo also appeared here, but
-        // that's the previous site builder's self-promotion, not a program
-        // partner — see BRAND.md note 6.
-        'items' => [
-            ['name' => 'HNMI Jesus Cares', 'logo' => '/assets/images/partner-hnmi.webp'],
-        ],
+    // HNMI was originally scraped off the live site as a generic "partner"
+    // logo (see BRAND.md note 6). Per client direction (2026-07-24), the
+    // real relationship is that HNMI is Talebert's mother organization —
+    // reframed accordingly rather than left as a peer "partner" credit.
+    'mother_org_spotlight' => [
+        'heading' => 'OUR MOTHER ORGANIZATION',
+        'label'   => 'Operating Under',
     ],
 ];

@@ -86,7 +86,7 @@ require __DIR__ . '/icons.php';
     <div class="section-heading reveal">
       <p class="eyebrow"><?= e($page['programs']['eyebrow']) ?></p>
     </div>
-    <div class="card-grid cols-3">
+    <div class="card-grid <?= count($page['programs']['items']) >= 4 ? 'cols-4' : 'cols-3' ?>">
       <?php foreach ($page['programs']['items'] as $i => $program): ?>
         <?php $tag = $program['url'] ? 'a' : 'div'; ?>
         <<?= $tag ?> class="card reveal" style="transition-delay: <?= ($i % 3) * 80 ?>ms" <?= $program['url'] ? 'href="' . e($program['url']) . '"' : '' ?>>
@@ -146,19 +146,17 @@ require __DIR__ . '/icons.php';
   </div>
 </section>
 
-<?php if (!empty($page['partners']['items'])): ?>
+<?php if (!empty($page['mother_org_spotlight']) && !empty($site['mother_org'])): ?>
 <section class="partners">
   <div class="container">
     <div class="section-heading reveal">
-      <p class="eyebrow"><?= e($page['partners']['heading']) ?></p>
+      <p class="eyebrow"><?= e($page['mother_org_spotlight']['heading']) ?></p>
     </div>
     <div class="partners-center reveal">
-      <?php foreach ($page['partners']['items'] as $partner): ?>
-        <div class="partner-spotlight">
-          <img src="<?= e($partner['logo']) ?>" alt="<?= e($partner['name']) ?>" loading="lazy">
-          <span class="label"><small>In Partnership With</small><strong><?= e($partner['name']) ?></strong></span>
-        </div>
-      <?php endforeach; ?>
+      <a class="partner-spotlight" href="<?= e($site['mother_org']['website']) ?>" target="_blank" rel="noopener">
+        <img src="<?= e($site['mother_org']['logo']) ?>" alt="<?= e($site['mother_org']['name']) ?>" loading="lazy">
+        <span class="label"><small><?= e($page['mother_org_spotlight']['label']) ?></small><strong><?= e($site['mother_org']['name']) ?></strong></span>
+      </a>
     </div>
   </div>
 </section>
