@@ -196,6 +196,44 @@ converted to WebP (`assets/images/team/`); originals kept at
 passport photo — kept as-is (still clearly presentable at card size) since
 it's the only photo available for him.
 
+## Full rebrand: new logo and color palette (2026-07-24)
+
+The client uploaded `New Logo.png` — a circular badge (heart outline,
+child photo, "Talebert Child Care Uganda" arced text, "Smiling Child .
+Smiling God" ribbon) — and asked for the whole site's colors to match it.
+This **replaces** the palette described at the top of this document,
+which was reverse-engineered from the live WordPress site's CSS. The
+brand is now defined by this logo, not the old site.
+
+**Colors, sampled directly from the logo artwork** (`assets/originals/logo-2026.png`):
+
+| Token | Hex | Source in logo | Role on the rebuilt site |
+|---|---|---|---|
+| `--color-primary` | `#00ADF1` | Heart interior / ribbon fill (sky blue) | Buttons, links, primary interactive accent |
+| `--color-primary-dark` | `#313092` | Arced "Talebert Child Care Uganda" text (indigo) | Hover/focus states, secondary accents |
+| `--color-navy` | `#1B1A4D` | Deepened from the indigo above for contrast | Headings, dark section backgrounds (footer, commitment banner) |
+| `--color-accent-red` | `#ED1B24` | Heart outline / ribbon ends | New — used sparingly: hero eyebrow dashes, card hover top-accent gradient |
+| `--color-surface` | `#F0F9FF` | — (light tint derived from the new blue) | Section backgrounds |
+
+Text grays (`--color-text`, `--color-text-muted`) were left as neutral
+grays for readability — the logo doesn't specify a body-text color.
+
+**Logo usage:** the new badge has "Talebert Child Care Uganda" text baked
+directly into the artwork (arced around the heart). Earlier in this
+project, pairing an icon that already contains the wordmark with a
+*second*, separate HTML wordmark caused a "double logo" look the client
+flagged and asked to be fixed. Learning from that: the header and footer
+now show **only** the new logo badge (sized up, 62–64px) with no adjacent
+text — no separate `.brand-text` / `.wordmark` / `.tagline` markup.
+`assets/images/logo-badge.webp` is the working asset (square-cropped,
+white-padded); favicons were regenerated from the same source
+(`assets/icons/`).
+
+**Facebook**, added to `content/site.php`'s `social` array as the first
+real social link the site has ever had (the live site's Facebook icon
+had no `href` at all):
+`https://www.facebook.com/share/1JBfrv861n/?mibextid=wwXIfr`
+
 ## Mother organization, certificate, and a third program area (2026-07-24)
 
 Four client-directed updates, all now live:

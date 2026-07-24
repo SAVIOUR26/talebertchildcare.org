@@ -13,11 +13,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/" class="brand brand--footer">
-          <img src="/assets/images/icon-mark.webp" alt="" width="48" height="48">
-          <span class="brand-text">
-            <span class="wordmark"><?= e($site['wordmark']) ?></span>
-            <span class="tagline"><?= e($site['tagline']) ?></span>
-          </span>
+          <img src="/assets/images/logo-badge.webp" alt="<?= e($site['org_name']) ?>" width="64" height="64">
         </a>
         <p><?= e($site['footer']['commitment']) ?></p>
       </div>

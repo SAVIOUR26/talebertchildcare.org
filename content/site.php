@@ -54,13 +54,10 @@ return [
     // Donate page here since the original never linked anywhere).
     'header_cta' => ['label' => 'DONATE NOW', 'url' => '/donate'],
 
-    // No working social links exist on the live site (the footer Facebook
-    // icon has no href at all), and the profile document's contact section
-    // is entirely placeholders ("Insert Facebook page", etc). Add real
-    // links here once available — the footer template already knows how
-    // to render this array.
+    // The live site's footer Facebook icon had no href at all. Real page
+    // supplied by the client, 2026-07-24.
     'social' => [
-        // ['label' => 'Facebook', 'icon' => 'facebook', 'url' => 'https://facebook.com/...'],
+        ['label' => 'Facebook', 'icon' => 'facebook', 'url' => 'https://www.facebook.com/share/1JBfrv861n/?mibextid=wwXIfr'],
     ],
 
     // Both the live site and the new profile document leave contact

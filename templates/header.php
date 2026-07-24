@@ -27,7 +27,7 @@
 <meta property="og:title" content="<?= e($page['title']) ?>">
 <meta property="og:description" content="<?= e($page['description']) ?>">
 <meta property="og:type" content="website">
-<meta property="og:image" content="/assets/images/logo.webp">
+<meta property="og:image" content="/assets/images/logo-badge.webp">
 </head>
 <body>
 <a href="#main" class="visually-hidden">Skip to content</a>
@@ -35,11 +35,7 @@
 <header class="site-header">
   <div class="container site-header__inner">
     <a href="/" class="brand">
-      <img src="/assets/images/icon-mark.webp" alt="" width="52" height="52">
-      <span class="brand-text">
-        <span class="wordmark"><?= e($site['wordmark']) ?></span>
-        <span class="tagline"><?= e($site['tagline']) ?></span>
-      </span>
+      <img src="/assets/images/logo-badge.webp" alt="<?= e($site['org_name']) ?>" width="64" height="64">
     </a>
 
     <nav class="main-nav" id="main-nav">
